@@ -10,6 +10,18 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'medicos-list',
+    loadChildren: () => import('./medicos/medicos-list/medicos-list.module').then( m => m.MedicosListPageModule)
+  },
+  {
+    path: 'medicos-edit/:id',
+    loadChildren: () => import('./medicos/medicos-edit/medicos-edit.module').then( m => m.MedicosEditPageModule)
+  },
+  {
+    path: 'medicos-edit',
+    loadChildren: () => import('./medicos/medicos-edit/medicos-edit.module').then( m => m.MedicosEditPageModule)
   }
 ];
 

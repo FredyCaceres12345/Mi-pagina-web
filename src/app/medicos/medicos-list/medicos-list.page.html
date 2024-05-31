@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Listado de Medicos</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content [fullscreen]="true">
+  <ion-button [routerLink]="'/medicos-edit'" expand="block"> Nuevo </ion-button>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" class="ion-text-center"><b>Nombre</b></ion-col>
+      <ion-col size="2" class="ion-text-center"><b>Apellido</b></ion-col>
+      <ion-col size="2" class="ion-text-center"><b>Especialidad</b></ion-col>
+      <ion-col size="2" class="ion-text-center"><b>Salario</b></ion-col>
+      <ion-col size="2" class="ion-text-center"><b>Acciones</b></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let medicos of medicosArray">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2" class="ion-text-center ion-align-self-center">{{ medicos.nombre }}</ion-col>
+        <ion-col size="2" class="ion-text-center ion-align-self-center">{{ medicos.apellido }}</ion-col>
+        <ion-col size="2" class="ion-text-center ion-align-self-center">{{ medicos.especialidad }}</ion-col>
+        <ion-col size="2" class="ion-text-center ion-align-self-center">{{ medicos.salario }}</ion-col>
+
+        <ion-col size="2" class="custom-button-container">
+          <ion-button [routerLink]="['/medicos-edit', medicos.id]"><ion-icon name="create"></ion-icon></ion-button>
+          <ion-button (click)="eliminarMedicos(medicos.id)"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   </ion-item>
+  </ion-list>
+  </ion-content>
+   
+  
